@@ -6,9 +6,11 @@ if (isset($_SESSION['admin'])) {
     exit();
 }
 
+
+require '../config.php';
+$conn = getConnection();
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    require '../config.php';
-    $conn = getConnection();
 
     $username = $conn->real_escape_string($_POST['username']);
     $password = $_POST['password'];
