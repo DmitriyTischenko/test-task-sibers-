@@ -7,10 +7,8 @@ if (isset($_SESSION['admin'])) {
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $conn = new mysqli('localhost', 'root', 'lora2002lora', 'users_db');
-    if ($conn->connect_error) {
-        die("Connection error: " . $conn->connect_error);
-    }
+    require '../config.php';
+    $conn = getConnection();
 
     $username = $conn->real_escape_string($_POST['username']);
     $password = $_POST['password'];
